@@ -1,17 +1,18 @@
 #include <iostream>
 
 #include "raylib.h"
-
+#include "Game.h"
 
 int main() {
-    InitWindow(500, 1000, "Pong");
-    SetTargetFPS(165);
+    Game game;
+    game.init();
     while (!WindowShouldClose()) {
-        BeginDrawing();
-        ClearBackground(WHITE);
-        DrawText("some text", 10, 10, 20, BLACK);
-        DrawFPS(100, 100);
-        EndDrawing();
+        if (game.m_did_start) {
+            game.draw();
+            game.update();
+        } else {
+            game.menu();
+        }
     }
 
     CloseWindow();
