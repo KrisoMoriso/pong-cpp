@@ -24,8 +24,8 @@ void Game::draw() {
     m_ball.draw();
     m_player1.draw();
     m_player2.draw();
-    DrawText(TextFormat("%d", m_player1.m_score), 150, 50, 50, BLACK);
-    DrawText(TextFormat("%d", m_player2.m_score), m_width - 150, 50, 50, BLACK);
+    DrawText(TextFormat("%d", m_player2.m_score), 150, 50, 50, BLACK);
+    DrawText(TextFormat("%d", m_player1.m_score), m_width - 150, 50, 50, BLACK);
     EndDrawing();
 }
 
@@ -96,9 +96,9 @@ void Game::update() {
         float x = m_ball.m_pos.y - m_player1.m_pos.y;
         x /= m_player1.m_size.y;
         if (x < 0.3) {
-            m_ball.m_speed.y = -6 * x;
+            m_ball.m_speed.y = -8 * x;
         } else if (x > 0.7) {
-            m_ball.m_speed.y = 6 * (x-0.5);
+            m_ball.m_speed.y = 8 * (x-0.7);
         }
     }
     //ball vs player 2
