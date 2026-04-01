@@ -96,7 +96,7 @@ void Game::update() {
         float x = m_ball.m_pos.y - m_player1.m_pos.y;
         x /= m_player1.m_size.y;
         if (x < 0.3) {
-            m_ball.m_speed.y = -8 * x;
+            m_ball.m_speed.y = -8 * (0.3 - x);
         } else if (x > 0.7) {
             m_ball.m_speed.y = 8 * (x-0.7);
         }
